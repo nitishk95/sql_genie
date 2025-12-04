@@ -1,0 +1,5 @@
+.env
+myenv/
+.env.local
+venv
+venv/
