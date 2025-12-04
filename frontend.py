@@ -4,16 +4,15 @@ import sqlite3
 import os
 from main import extract_schema, text_to_sql
 
-# ---------- Page Config ----------
 st.set_page_config(
     page_title="SQLGenie ✨",
     page_icon="🧞‍♂️",
     layout="wide"
 )
 
-# ------------------------ STATE INIT ------------------------
+
 if "db_path" not in st.session_state:
-    st.session_state.db_path = "amazon.db"   # default DB
+    st.session_state.db_path = "amazon.db"   
 
 if "latest_sql" not in st.session_state:
     st.session_state.latest_sql = None
@@ -23,7 +22,7 @@ if "latest_columns" not in st.session_state:
     st.session_state.latest_columns = None
 
 
-# ---------- Import Raw SQL Executor ----------
+
 def execute_sql_raw(sql_query):
     """Executes SQL on the current active database."""
     conn = sqlite3.connect(st.session_state.db_path)
@@ -91,7 +90,7 @@ with st.container():
 
         if uploaded:
             if uploaded.name.endswith(".db"):
-                # Save DB
+                
                 new_db_path = "uploaded_database.db"
                 with open(new_db_path, "wb") as f:
                     f.write(uploaded.getbuffer())
@@ -185,3 +184,4 @@ with st.container():
                 st.info("No rows returned.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
