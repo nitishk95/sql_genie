@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 
 
-# Load .env file
+
 load_dotenv()
 
 # ------------------------ STEP 1: Extract Schema ------------------------
@@ -70,7 +70,7 @@ def text_to_sql(schema, prompt, error=None):
 
     llm = ChatGroq(
         api_key=os.getenv("GROQ_API_KEY"),
-        model="llama-3.3-70b-versatile",   # ✔ updated model
+        model="llama-3.3-70b-versatile",  
         temperature=0
     )
 
@@ -152,3 +152,4 @@ if __name__ == "__main__":
 
     print("\n📊 Query Result:")
     print(result)
+
